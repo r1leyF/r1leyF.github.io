@@ -30,7 +30,7 @@ button {
 
 .image {
     width: 350px;
-    margin-left: 20px;
+    margin-right:-70px;
 }
 
 .textArea {
@@ -95,8 +95,6 @@ button {
 
 .plugDiv {
     margin: auto;
-    margin-right: 80px;
-    margin-left: 20px;
     display: flex;
     align-items: center;
 }
@@ -108,8 +106,6 @@ button {
 
 .indicatorDiv {
     margin: auto;
-    margin-right: 280px;
-    margin-left: 20px;
     margin-top: 50px;
 }
 
