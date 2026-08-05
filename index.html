@@ -7,7 +7,7 @@
 
   <body>
     <div class="topDiv">
-      <h1 class="centerHeader">The Enigma Machine</h1>
+      <h1 class="centerHeader">The Enigma Machine<span class="tooltip">?<span class="tooltiptext">The Enigma machine was a cipher device used to encrypt text.<br>It was used extensively by Nazi Germany before and during WW2.</span></span></h1>
       <textarea class="textArea" id="text_area" cols="80" rows="7" placeholder="Enter text"></textarea><br>
       <button class="centerButton" onclick="encryptMessage()">Encrypt</button>
     </div>
@@ -15,7 +15,7 @@
     <div class="bottomDiv">
       <div class="plugDiv">
         <div class="centerDiv">
-          <h2 class="plugHeader">Plugs</h2>
+          <h2 class="plugHeader">Plugs<span class="tooltip">?<span class="tooltiptext">The plug board swaps pairs of letters.<br>The plug board is the first thing input text passes through.<br>It passes through the plug board again after going through the rotors as a last step before the final output.</span></span></h2>
           <p class="plugPara" id="plug_paragraph"></p>
         </div>
         <div class="plugGrid">
@@ -47,15 +47,20 @@
           <button class="plugButton"onclick="enterPlugCode(58)">Z</button>
         </div>
       </div>
-
       <img class="image" src="enigma.png">
 
       <div class="indicatorDiv">
-        <h2 class="indicatorHeader">Rotors</h2>
+        <h2 class="indicatorHeader">Rotors<span class="tooltip">?<span class="tooltiptext">The rotors are a set of 3 rotating disks that scramble letters.<br>For each letter inputted one or more rotors are turned. This means every letter inputted is encrypted differently.<br>The starting position of these rotors can be set. Positions are shown with an alphabet ring from Ascii 32 ' ' - Ascii 126 '~'</span></span></h2>
         <div class="indicatorGrid">
-          <input class="indicatorButton" id="idicator1" type="text" maxlength="1">
-          <input class="indicatorButton" id="idicator2" type="text" maxlength="1">
-          <input class="indicatorButton" id="idicator3" type="text" maxlength="1">
+          <button class="indicatorButton" onclick="tickRotorStart(0,1)">⮝</button>
+          <button class="indicatorButton" onclick="tickRotorStart(1,1)">⮝</button>
+          <button class="indicatorButton" onclick="tickRotorStart(2,1)">⮝</button>
+          <input class="indicatorInput" id="idicator1" type="text" maxlength="1">
+          <input class="indicatorInput" id="idicator2" type="text" maxlength="1">
+          <input class="indicatorInput" id="idicator3" type="text" maxlength="1">
+          <button class="indicatorButton" onclick="tickRotorStart(0,-1)">⮟</button>
+          <button class="indicatorButton" onclick="tickRotorStart(1,-1)">⮟</button>
+          <button class="indicatorButton" onclick="tickRotorStart(2,-1)">⮟</button>
         </div>
       </div>
     </div>

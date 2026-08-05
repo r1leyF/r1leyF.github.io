@@ -1,32 +1,35 @@
 const asciiOffSet = 32;
-const alphabetSize = 94;
+const alphabetSize = 95;
 
 const rotor1Default = new Uint8Array([ 
-    77, 50, 45, 63, 19, 22, 81, 92, 78, 15, 82, 55, 34, 48, 11, 17, 43, 41, 56, 83, 61, 7, 52, 71, 32, 67, 80, 6, 44, 31, 42, 
-    53, 75, 90, 10, 20, 25, 69, 85, 70, 36, 24, 12, 76, 59, 16, 0, 47, 73, 33, 54, 30, 49, 79, 86, 64, 62, 40, 5, 88, 8, 4, 89,
-    35, 66, 37, 18, 28, 13, 26, 58, 46, 93, 29, 87, 14, 60, 68, 74, 27, 1, 38, 72, 3, 21, 65, 2, 51, 23, 39, 57, 9, 91, 84, 
+    40, 70, 13, 81, 76, 77, 84, 86, 30, 38, 36, 6, 32, 43, 46, 2, 69, 54, 52, 82, 15, 14, 39, 78, 66, 87, 67, 10, 79, 44, 31, 
+    88, 65, 8, 48, 22, 12, 26, 11, 74, 62, 16, 3, 94, 71, 58, 55, 37, 49, 18, 21, 19, 20, 41, 60, 29, 0, 89, 85, 27, 42, 24, 23, 
+    7, 34, 50, 90, 92, 28, 73, 33, 51, 75, 47, 93, 57, 68, 72, 80, 5, 64, 17, 45, 59, 53, 63, 4, 9, 56, 35, 61, 25, 1, 83, 91, 
 ]);
 const rotor2Default = new Uint8Array([ 
-    57, 41, 67, 15, 32, 74, 11, 19, 90, 60, 37, 68, 76, 84, 72, 62, 64, 21, 24, 52, 88, 2, 4, 82, 46, 23, 81, 69, 30, 18, 40, 
-    14, 27, 47, 42, 71, 86, 31, 17, 87, 16, 26, 43, 9, 77, 35, 85, 49, 45, 7, 1, 8, 55, 73, 38, 44, 50, 12, 92, 58, 83, 80, 59, 
-    22, 10, 53, 3, 79, 56, 25, 54, 70, 34, 28, 89, 13, 6, 78, 20, 29, 93, 75, 51, 66, 61, 5, 63, 48, 0, 65, 33, 39, 36, 91, 
+    11, 65, 23, 10, 22, 64, 2, 91, 5, 37, 48, 9, 84, 33, 81, 29, 40, 7, 13, 47, 28, 3, 93, 79, 12, 26, 87, 76, 39, 46, 67, 27, 
+    83, 45, 53, 75, 34, 31, 4, 80, 68, 16, 30, 58, 18, 1, 82, 92, 44, 49, 14, 57, 0, 94, 77, 78, 6, 25, 55, 85, 61, 63, 89, 20, 
+    56, 59, 21, 86, 24, 69, 52, 60, 50, 19, 54, 41, 51, 32, 42, 15, 88, 62, 36, 72, 8, 43, 90, 38, 71, 35, 66, 73, 74, 17, 70, 
 ]);
 const rotor3Default = new Uint8Array([ 
-    55, 65, 72, 35, 50, 38, 20, 79, 69, 33, 26, 10, 93, 28, 2, 12, 52, 0, 47, 11, 43, 51, 23, 73, 36, 40, 39, 42, 27, 30, 29, 
-    83, 78, 32, 44, 80, 82, 22, 87, 86, 13, 57, 3, 19, 74, 31, 85, 34, 77, 53, 45, 46, 17, 14, 71, 92, 21, 8, 56, 59, 70, 58, 
-    84, 48, 62, 76, 68, 91, 60, 67, 81, 9, 66, 90, 4, 88, 18, 16, 64, 37, 61, 7, 75, 6, 63, 41, 25, 1, 24, 5, 49, 15, 89, 54, 
+    42, 81, 72, 61, 62, 11, 30, 90, 74, 23, 43, 94, 49, 21, 7, 33, 78, 80, 70, 17, 13, 67, 35, 59, 77, 16, 34, 1, 38, 9, 12, 0, 
+    40, 19, 46, 50, 75, 51, 41, 56, 47, 55, 26, 25, 88, 54, 8, 32, 39, 69, 73, 27, 87, 15, 76, 24, 66, 65, 28, 29, 4, 63, 85, 
+    58, 82, 20, 91, 83, 68, 6, 86, 53, 84, 60, 22, 79, 31, 37, 45, 3, 92, 93, 57, 48, 2, 44, 14, 52, 18, 89, 10, 36, 5, 71, 64, 
 ]);
 const reflector = new Uint8Array([ 
-    69, 37, 40, 4, 3, 88, 44, 65, 81, 76, 42, 51, 84, 43, 70, 20, 49, 27, 91, 21, 15, 19, 93, 46, 35, 72, 39, 17, 63, 34, 47, 
-    31, 41, 54, 29, 24, 60, 1, 59, 26, 2, 32, 10, 13, 6, 75, 23, 30, 55, 16, 92, 11, 85, 73, 33, 48, 89, 90, 74, 38, 36, 79, 
-    86, 28, 80, 7, 77, 67, 87, 0, 14, 82, 25, 53, 58, 45, 9, 66, 83, 61, 64, 8, 71, 78, 12, 52, 62, 68, 5, 56, 57, 18, 50, 22
+    51, 24, 40, 44, 48, 79, 88, 84, 17, 19, 11, 10, 33, 92, 39, 42, 47, 8, 46, 9, 91, 71, 75, 83, 1, 36, 89, 82, 72, 70, 67, 32,
+    31, 12, 62, 90, 25, 66, 65, 14, 2, 45, 15, 64, 3, 41, 18, 16, 4, 74, 52, 0, 50, 59, 63, 77, 68, 76, 86, 53, 93, 78, 34, 54, 
+    43, 38, 37, 30, 56, 69, 29, 21, 28, 85, 49, 22, 57, 55, 61, 5, 87, 81, 27, 23, 7, 73, 58, 80, 6, 26, 35, 20, 13, 60, 94, 
 ]);
-const plugBoard = new Uint8Array(94);
+const plugBoard = new Uint8Array(95);
 plugBoard.fill(255);
 
-let rotor1 = new Uint8Array(94);
-let rotor2 = new Uint8Array(94);
-let rotor3 = new Uint8Array(94);
+let rotor1 = new Uint8Array(95);
+let rotor2 = new Uint8Array(95);
+let rotor3 = new Uint8Array(95);
+
+const rotor1Notch = 24; // completly arbitrary notches
+const rotor2Notch = 57;
 
 let rotorsStartPosition = new Uint8Array([0,0,0]);
 
@@ -130,7 +133,7 @@ function setPlug(){
 
         seen.push(plugBoard[i]);
     }
-    console.log(s);
+
     document.getElementById("plug_paragraph").innerHTML = s;
 
     // clear the plugset
@@ -140,44 +143,40 @@ function checkPlugBoard(index){
     if(plugBoard[index] == 255) return index;
     return plugBoard[index];
 }
-function resetRotors(){
-    // copy the defaults into the rotors
-    rotor1.set(rotor1Default);
-    rotor2.set(rotor2Default);
-    rotor3.set(rotor3Default);
+function tickRotorStart(rotorNum, add){
 
+    rotorsStartPosition[rotorNum] += add;
+    if(rotorsStartPosition[rotorNum] == 255) rotorsStartPosition[rotorNum] = alphabetSize-1;
+    else if(rotorsStartPosition[rotorNum] == alphabetSize) rotorsStartPosition[rotorNum] = 0;
+
+    switch(rotorNum){
+        case 0:
+            document.getElementById("idicator1").value = String.fromCharCode(rotorsStartPosition[0] + asciiOffSet);
+            break;
+        case 1:
+            document.getElementById("idicator2").value = String.fromCharCode(rotorsStartPosition[1] + asciiOffSet);
+            break;
+        case 2:
+            document.getElementById("idicator3").value = String.fromCharCode(rotorsStartPosition[2] + asciiOffSet);
+            break;
+    }
+}
+function resetRotors(){
     // set the start positions
     rotorsStartPosition[0] = document.getElementById("idicator1").value.charCodeAt(0)-asciiOffSet;
     rotorsStartPosition[1] = document.getElementById("idicator2").value.charCodeAt(0)-asciiOffSet;
     rotorsStartPosition[2] = document.getElementById("idicator3").value.charCodeAt(0)-asciiOffSet;
 
-    console.log(rotorsStartPosition[0]);
-    console.log(rotorsStartPosition[1]);
-    console.log(rotorsStartPosition[2]);
-
-    let maxTick = -1;
-    for(let i = 0; i < 3; i++){
-        if(maxTick < rotorsStartPosition[i]) maxTick = rotorsStartPosition[i];
-        rotorsTickCount[i] = rotorsStartPosition[i];
+    // copy defualts into rotors with the start offset
+    for(let i = 0; i < alphabetSize; i++){
+        rotor1[i] = rotor1Default[(i+rotorsStartPosition[0])%alphabetSize];
+        rotor2[i] = rotor2Default[(i+rotorsStartPosition[1])%alphabetSize];
+        rotor3[i] = rotor3Default[(i+rotorsStartPosition[2])%alphabetSize];
     }
 
-    let doTick = [true, true, true];
-    for(let i = 0; i < maxTick; i++){
-        for(let j = 0; j < 3; j++){
-            if(i >= rotorsStartPosition[j]) doTick[j] = false;
-        }
-
-        let temp = [rotor1[0], rotor2[0], rotor3[0]];
-        for(let j = 0; j < alphabetSize-1; j++){
-            if(doTick[0]) rotor1[j] = rotor1[j+1];
-            if(doTick[1]) rotor2[j] = rotor2[j+1];
-            if(doTick[2]) rotor3[j] = rotor3[j+1];
-        }
-
-        if(doTick[0]) rotor1[alphabetSize-1] = temp[0];
-        if(doTick[1]) rotor2[alphabetSize-1] = temp[1];
-        if(doTick[2]) rotor3[alphabetSize-1] = temp[2];
-    }
+    rotorsTickCount[0] = rotorsStartPosition[0];
+    rotorsTickCount[1] = rotorsStartPosition[1];
+    rotorsTickCount[2] = rotorsStartPosition[2];
 }
 function doRotors(index){
 
@@ -192,19 +191,21 @@ function doRotors(index){
     index = rotor1.indexOf(index);
 
     // do the rotor ticks
-    rotorsTickCount[0]++;
     let tickR2 = false;
     let tickR3 = false;
 
-    if(rotorsTickCount[0] > alphabetSize){
-        rotorsTickCount[1]++;
-        tickR2 = true;
-        rotorsTickCount[0] = 0;
+    rotorsTickCount[0]++;
+    if(rotorsTickCount[0] == alphabetSize) rotorsTickCount[0] = 0;
 
-        if(rotorsTickCount[1] > alphabetSize){
-            rotorsTickCount[2]++;
+    if(rotorsTickCount[0] == rotor1Notch){
+        tickR2 = true;
+        rotorsTickCount[1]++;
+        if(rotorsTickCount[1] == alphabetSize) rotorsTickCount[1] = 0;
+
+        if(rotorsTickCount[1] == rotor2Notch){
             tickR3 = true;
-            rotorsTickCount[1] = 0;
+            rotorsTickCount[2]++;
+            if(rotorsTickCount[2] == alphabetSize) rotorsTickCount[2] = 0;
         }
     }
 

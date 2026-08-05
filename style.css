@@ -30,7 +30,7 @@ button {
 
 .image {
     width: 350px;
-    margin-right:-70px;
+    height: auto;
 }
 
 .textArea {
@@ -55,6 +55,24 @@ button {
 .centerButton {
     display: block;
     margin: auto;
+}
+
+.topDiv {
+    margin-bottom: 15px;
+}
+
+.bottomDiv {
+    margin: auto;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.centerDiv {
+    margin: auto;
+    margin-top: 0px;
 }
 
 .plugGrid {
@@ -92,8 +110,9 @@ button {
 
 .indicatorGrid {
     display: grid;
-    grid-template-columns: 50px 50px 50px;
+    grid-template-columns: 60px 60px 60px;
     column-gap: 20px;
+    row-gap: 10px;
     margin: auto;
     margin-top: 30px;
     justify-content: center;
@@ -104,12 +123,23 @@ button {
     margin-top: 50px;
 }
 
-.indicatorButton {
+.indicatorInput {
     background-color: lightgray;
     color: rgb(42, 42, 42);
     width: 50px;
     height: 50px;
+    margin: auto;
     font-size: 30px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.indicatorButton{
+    background-color: gray;
+    color: rgb(42, 42, 42);
+    width: 40px;
+    height: 40px;
+    margin:auto;
+    font-size: 20px;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -121,24 +151,44 @@ button {
     text-align: center;
 }
 
-.topDiv {
-    margin-bottom: 15px;
-}
-
-.bottomDiv {
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.centerDiv {
-    margin: auto;
-    margin-top: 0px;
-}
-
 .centerParagraph {
     margin: auto;
     text-align: center;
+}
+.tooltip {
+  position: relative;
+  margin-left: 7px;
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid lightgray;
+  border-radius: 100%;
+  width:25px;
+  height: 25px;
+  color: lightgray;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.tooltiptext{
+  visibility: hidden;
+  background-color: lightgray;
+  color: black;
+  text-align: left;
+  padding: 5px 10px;
+  border: 2px solid gray;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 16px;
+  font-family: 'Franklin Gothic Light', 'Arial Narrow', Arial, sans-serif;
+
+  width: 250px;
+  top: 120%;
+  left: 50%;
+  margin-left: -125px;
+}
+.tooltip:hover .tooltiptext{
+    visibility: visible;
 }
