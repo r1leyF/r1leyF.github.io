@@ -1,70 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EnigmaMachine</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Riley's Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Comic Relief' rel='stylesheet'>
+    <style>
+      body{
+        font-family: 'Comic Relief', sans-serif;
+        background-color: gainsboro;
+      }
+      .centerBlock{
+        text-align: center;
+      }
+      h2{
+        text-decoration: underline;
+      }
+      a:link{
+        color: rgb(0, 145, 109);
+      }
+      a:visited{
+        color: rgb(205, 0, 68);
+      }
+      .projectDiv{
+        margin: auto;
+        width:50%;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="topDiv">
-      <h1 class="centerHeader">The Enigma Machine<span class="tooltip">?<span class="tooltiptext">The Enigma machine was a cipher device used to encrypt text.<br>It was used extensively by Nazi Germany before and during WW2.</span></span></h1>
-      <textarea class="textArea" id="text_area" cols="80" rows="7" placeholder="Enter text"></textarea><br>
-      <button class="centerButton" onclick="encryptMessage()">Encrypt</button>
+    <h1 class="centerBlock">Riley's Site</h1>
+    <h2 class="centerBlock">Projects</h2>
+    <div class="projectDiv">
+      <a href="/EnigmaMachine/">Enigma Machine</a>
     </div>
-    <hr>
-    <div class="bottomDiv">
-      <div class="plugDiv">
-        <div class="centerDiv">
-          <h2 class="plugHeader">Plugs<span class="tooltip">?<span class="tooltiptext">The plug board swaps pairs of letters.<br>The plug board is the first thing input text passes through.<br>It passes through the plug board again after going through the rotors as a last step before the final output.</span></span></h2>
-          <p class="plugPara" id="plug_paragraph"></p>
-        </div>
-        <div class="plugGrid">
-          <button class="plugButton"onclick="enterPlugCode(33)">A</button>
-          <button class="plugButton"onclick="enterPlugCode(34)">B</button>
-          <button class="plugButton"onclick="enterPlugCode(35)">C</button>
-          <button class="plugButton"onclick="enterPlugCode(36)">D</button>
-          <button class="plugButton"onclick="enterPlugCode(37)">E</button>
-          <button class="plugButton"onclick="enterPlugCode(38)">F</button>
-          <button class="plugButton"onclick="enterPlugCode(39)">G</button>
-          <button class="plugButton"onclick="enterPlugCode(40)">H</button>
-          <button class="plugButton"onclick="enterPlugCode(41)">I</button>
-          <button class="plugButton"onclick="enterPlugCode(42)">J</button>
-          <button class="plugButton"onclick="enterPlugCode(43)">K</button>
-          <button class="plugButton"onclick="enterPlugCode(44)">L</button>
-          <button class="plugButton"onclick="enterPlugCode(45)">M</button>
-          <button class="plugButton"onclick="enterPlugCode(46)">N</button>
-          <button class="plugButton"onclick="enterPlugCode(47)">O</button>
-          <button class="plugButton"onclick="enterPlugCode(48)">P</button>
-          <button class="plugButton"onclick="enterPlugCode(49)">Q</button>
-          <button class="plugButton"onclick="enterPlugCode(50)">R</button>
-          <button class="plugButton"onclick="enterPlugCode(51)">S</button>
-          <button class="plugButton"onclick="enterPlugCode(52)">T</button>
-          <button class="plugButton"onclick="enterPlugCode(53)">U</button>
-          <button class="plugButton"onclick="enterPlugCode(54)">V</button>
-          <button class="plugButton"onclick="enterPlugCode(55)">W</button>
-          <button class="plugButton"onclick="enterPlugCode(56)">X</button>
-          <button class="plugButton"onclick="enterPlugCode(57)">Y</button>
-          <button class="plugButton"onclick="enterPlugCode(58)">Z</button>
-        </div>
-      </div>
-      <img class="image" src="enigma.png">
-
-      <div class="indicatorDiv">
-        <h2 class="indicatorHeader">Rotors<span class="tooltip">?<span class="tooltiptext">The rotors are a set of 3 rotating disks that scramble letters.<br>For each letter inputted one or more rotors are turned. This means every letter inputted is encrypted differently.<br>The starting position of these rotors can be set. Positions are shown with an alphabet ring from Ascii 32 ' ' - Ascii 126 '~'</span></span></h2>
-        <div class="indicatorGrid">
-          <button class="indicatorButton" onclick="tickRotorStart(0,1)">⮝</button>
-          <button class="indicatorButton" onclick="tickRotorStart(1,1)">⮝</button>
-          <button class="indicatorButton" onclick="tickRotorStart(2,1)">⮝</button>
-          <input class="indicatorInput" id="idicator1" type="text" maxlength="1">
-          <input class="indicatorInput" id="idicator2" type="text" maxlength="1">
-          <input class="indicatorInput" id="idicator3" type="text" maxlength="1">
-          <button class="indicatorButton" onclick="tickRotorStart(0,-1)">⮟</button>
-          <button class="indicatorButton" onclick="tickRotorStart(1,-1)">⮟</button>
-          <button class="indicatorButton" onclick="tickRotorStart(2,-1)">⮟</button>
-        </div>
-      </div>
-    </div>
-    <button class="centerButton" onclick="reset()">Reset</button>
   </body>
-  <script src="enigmaCode.js"></script>
 </html>
