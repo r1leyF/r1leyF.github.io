@@ -1,42 +1,24 @@
-const asciiOffSet = 32;
-const alphabetSize = 95;
+const asciiOffSet = 65;
+const alphabetSize = 26;
 
-const rotor1Default = new Uint8Array([ 
-    40, 70, 13, 81, 76, 77, 84, 86, 30, 38, 36, 6, 32, 43, 46, 2, 69, 54, 52, 82, 15, 14, 39, 78, 66, 87, 67, 10, 79, 44, 31, 
-    88, 65, 8, 48, 22, 12, 26, 11, 74, 62, 16, 3, 94, 71, 58, 55, 37, 49, 18, 21, 19, 20, 41, 60, 29, 0, 89, 85, 27, 42, 24, 23, 
-    7, 34, 50, 90, 92, 28, 73, 33, 51, 75, 47, 93, 57, 68, 72, 80, 5, 64, 17, 45, 59, 53, 63, 4, 9, 56, 35, 61, 25, 1, 83, 91, 
-]);
-const rotor2Default = new Uint8Array([ 
-    11, 65, 23, 10, 22, 64, 2, 91, 5, 37, 48, 9, 84, 33, 81, 29, 40, 7, 13, 47, 28, 3, 93, 79, 12, 26, 87, 76, 39, 46, 67, 27, 
-    83, 45, 53, 75, 34, 31, 4, 80, 68, 16, 30, 58, 18, 1, 82, 92, 44, 49, 14, 57, 0, 94, 77, 78, 6, 25, 55, 85, 61, 63, 89, 20, 
-    56, 59, 21, 86, 24, 69, 52, 60, 50, 19, 54, 41, 51, 32, 42, 15, 88, 62, 36, 72, 8, 43, 90, 38, 71, 35, 66, 73, 74, 17, 70, 
-]);
-const rotor3Default = new Uint8Array([ 
-    42, 81, 72, 61, 62, 11, 30, 90, 74, 23, 43, 94, 49, 21, 7, 33, 78, 80, 70, 17, 13, 67, 35, 59, 77, 16, 34, 1, 38, 9, 12, 0, 
-    40, 19, 46, 50, 75, 51, 41, 56, 47, 55, 26, 25, 88, 54, 8, 32, 39, 69, 73, 27, 87, 15, 76, 24, 66, 65, 28, 29, 4, 63, 85, 
-    58, 82, 20, 91, 83, 68, 6, 86, 53, 84, 60, 22, 79, 31, 37, 45, 3, 92, 93, 57, 48, 2, 44, 14, 52, 18, 89, 10, 36, 5, 71, 64, 
-]);
-const reflector = new Uint8Array([ 
-    51, 24, 40, 44, 48, 79, 88, 84, 17, 19, 11, 10, 33, 92, 39, 42, 47, 8, 46, 9, 91, 71, 75, 83, 1, 36, 89, 82, 72, 70, 67, 32,
-    31, 12, 62, 90, 25, 66, 65, 14, 2, 45, 15, 64, 3, 41, 18, 16, 4, 74, 52, 0, 50, 59, 63, 77, 68, 76, 86, 53, 93, 78, 34, 54, 
-    43, 38, 37, 30, 56, 69, 29, 21, 28, 85, 49, 22, 57, 55, 61, 5, 87, 81, 27, 23, 7, 73, 58, 80, 6, 26, 35, 20, 13, 60, 94, 
-]);
-const plugBoard = new Uint8Array(95);
+const rotor1Default = new Uint8Array([ 4, 10, 12, 5, 11, 6, 3, 16, 21, 25, 13, 19, 14, 22, 24, 7, 23, 20, 18, 15, 0, 8, 1, 17, 2, 9, ]); // rotor I Enigma I
+const rotor2Default = new Uint8Array([ 0, 9, 3, 10, 18, 8, 17, 20, 23, 1, 11, 7, 22, 19, 12, 2, 16, 6, 25, 13, 15, 24, 5, 21, 14, 4, ]); // rotro II Enigma I
+const rotor3Default = new Uint8Array([ 1, 3, 5, 7, 9, 11, 2, 15, 17, 19, 23, 21, 25, 13, 24, 4, 8, 22, 6, 0, 10, 12, 20, 18, 16, 14, ]); // rotor III Enigma I
+const reflector = new Uint8Array([ 24, 17, 20, 7, 16, 18, 11, 3, 15, 23, 13, 6, 14, 10, 12, 8, 4, 1, 5, 25, 2, 22, 21, 9, 0, 19, ]);
+
+const plugBoard = new Uint8Array(26);
 plugBoard.fill(255);
 
-let rotor1 = new Uint8Array(95);
-let rotor2 = new Uint8Array(95);
-let rotor3 = new Uint8Array(95);
+let rotor1 = new Uint8Array(26);
+let rotor2 = new Uint8Array(26);
+let rotor3 = new Uint8Array(26);
 
-const rotor1Notch = 24; // completly arbitrary notches
-const rotor2Notch = 57;
+const rotor1Notch = 16; // Q rotor I rollover
+const rotor2Notch = 4; // E rotot II rollover
 
 let rotorsStartPosition = new Uint8Array([0,0,0]);
 
 let rotorsTickCount = new Uint8Array(3);
-
-let p1 = -1;
-let p2 = -1;
 
 const plugSet = new Uint8Array([255,255]);
 
@@ -51,11 +33,13 @@ function encryptMessage(){
     let encrypt = "";
 
     // loop through all characters of orignal message doing cipher to them
+    count = 1;
     for(let i = 0; i < message.length; i++){
         // get the ascii code for array use
         code = message.charCodeAt(i);
         // if not a letter in range skip it
-        if(code < 32 || code > 126) continue;
+        if(code <= 122 && code >= 97) code -= 32;
+        else if(code < 65 || code > 90) continue;
         // offset it back to 0 for array indexing
         code -= asciiOffSet;
         // plug board
@@ -87,41 +71,27 @@ function enterPlugCode(charCode){
     setPlug();
 }
 function setPlug(){
-    // also link the lower case version of this letter
-    let otherCharA = plugSet[0] + 32;
-    let otherCharB = plugSet[1] + 32;
-
     // this exact plug exists so remove it
     if(plugBoard[plugSet[0]] != 255 && plugBoard[plugSet[0]] == plugSet[1]){
         plugBoard[plugSet[0]] = 255;
         plugBoard[plugSet[1]] = 255;
-        plugBoard[otherCharA] = 255;
-        plugBoard[otherCharB] = 255;
     }
     // add the plug
     else{
         // if plug 0 was already set remove it
-        if(plugBoard[plugSet[0]] != 255){
-            plugBoard[plugBoard[plugSet[0]]] = 255;
-            plugBoard[plugBoard[otherCharA]] = 255;
-        }
+        if(plugBoard[plugSet[0]] != 255) plugBoard[plugBoard[plugSet[0]]] = 255;
         // if plug 1 was already set remove it
-        if(plugBoard[plugSet[1]] != 255){
-            plugBoard[plugBoard[plugSet[1]]] = 255;
-            plugBoard[plugBoard[otherCharB]] = 255;
-        }
+        if(plugBoard[plugSet[1]] != 255) plugBoard[plugBoard[plugSet[1]]] = 255;
 
         plugBoard[plugSet[0]] = plugSet[1];
         plugBoard[plugSet[1]] = plugSet[0];
-        plugBoard[otherCharA] = otherCharB;
-        plugBoard[otherCharB] = otherCharA;
     }
 
     // show the plug text
     let s = "";
     const seen = [];
     // loop through the capital letter
-    for(let i = 33; i < 59; i++){
+    for(let i = 0; i < alphabetSize; i++){
         // no plug skip
         if(plugBoard[i] == 255) continue;
         // alrady added this plug skip
