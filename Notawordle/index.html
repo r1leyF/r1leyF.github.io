@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>Notawordle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body id="body">
+        <div id="app" class="app">
+            <h1 class="unselectable">🎲Notawordle🎲</h1>
+            <p class="unselectable" style="margin-block-start: 0.5em; margin-block-end: 0.5em;">Wordle, but no real words.<span id="err" class="errorMsg">In word list</span></p>
+            <section class="letterGrid">
+                <div id="row0" class="letterRow">
+                    <input id="letter_00" class="letterBox unselectable" disabled></input>
+                    <input id="letter_01" class="letterBox unselectable" disabled></input>
+                    <input id="letter_02" class="letterBox unselectable" disabled></input>
+                    <input id="letter_03" class="letterBox unselectable" disabled></input>
+                    <input id="letter_04" class="letterBox unselectable" disabled></input>
+                </div>
+                <div id="row1" class="letterRow">
+                    <input id="letter_10" class="letterBox unselectable" disabled></input>
+                    <input id="letter_11" class="letterBox unselectable" disabled></input>
+                    <input id="letter_12" class="letterBox unselectable" disabled></input>
+                    <input id="letter_13" class="letterBox unselectable" disabled></input>
+                    <input id="letter_14" class="letterBox unselectable" disabled></input>
+                </div>
+                <div id="row2" class="letterRow">
+                    <input id="letter_20" class="letterBox unselectable" disabled></input>
+                    <input id="letter_21" class="letterBox unselectable" disabled></input>
+                    <input id="letter_22" class="letterBox unselectable" disabled></input>
+                    <input id="letter_23" class="letterBox unselectable" disabled></input>
+                    <input id="letter_24" class="letterBox unselectable" disabled></input>
+                </div>
+                <div id="row3" class="letterRow">
+                    <input id="letter_30" class="letterBox unselectable" disabled></input>
+                    <input id="letter_31" class="letterBox unselectable" disabled></input>
+                    <input id="letter_32" class="letterBox unselectable" disabled></input>
+                    <input id="letter_33" class="letterBox unselectable" disabled></input>
+                    <input id="letter_34" class="letterBox unselectable" disabled></input>
+                </div>
+                <div id="row4" class="letterRow">
+                    <input id="letter_40" class="letterBox unselectable" disabled></input>
+                    <input id="letter_41" class="letterBox unselectable" disabled></input>
+                    <input id="letter_42" class="letterBox unselectable" disabled></input>
+                    <input id="letter_43" class="letterBox unselectable" disabled></input>
+                    <input id="letter_44" class="letterBox unselectable" disabled></input>
+                </div>
+                <div id="row5" class="letterRow">
+                    <input id="letter_50" class="letterBox unselectable" disabled></input>
+                    <input id="letter_51" class="letterBox unselectable" disabled></input>
+                    <input id="letter_52" class="letterBox unselectable" disabled></input>
+                    <input id="letter_53" class="letterBox unselectable" disabled></input>
+                    <input id="letter_54" class="letterBox unselectable" disabled></input>
+                </div>
+            </section>
+            
+            <div class="keyBoard unselectable">
+                <div>
+                    <button id="Q" class="key">Q</button>
+                    <button id="W" class="key">W</button>
+                    <button id="E" class="key">E</button>
+                    <button id="R" class="key">R</button>
+                    <button id="T" class="key">T</button>
+                    <button id="Y" class="key">Y</button>
+                    <button id="U" class="key">U</button>
+                    <button id="I" class="key">I</button>
+                    <button id="O" class="key">O</button>
+                    <button id="P" class="key">P</button>
+                </div>
+                <div>
+                    <button id="A" class="key">A</button>
+                    <button id="S" class="key">S</button>
+                    <button id="D" class="key">D</button>
+                    <button id="F" class="key">F</button>
+                    <button id="G" class="key">G</button>
+                    <button id="H" class="key">H</button>
+                    <button id="J" class="key">J</button>
+                    <button id="K" class="key">K</button>
+                    <button id="L" class="key">L</button>
+                </div>
+                <div>
+                    <button id="enter" class="key specialKey" style="font-size: 1rem;">ENTER</button>
+                    <button id="Z" class="key">Z</button>
+                    <button id="X" class="key">X</button>
+                    <button id="C" class="key">C</button>
+                    <button id="V" class="key">V</button>
+                    <button id="B" class="key">B</button>
+                    <button id="N" class="key">N</button>
+                    <button id="M" class="key">M</button>
+                    <button id="back" class="key specialKey" style="font-size: 1.3rem;">⌫</button>
+                </div>
+            </div>
+        </div>
+        <dialog id="dialog" class="resultDialog" open>
+            <div class="resultBody">
+                <h1 class="unselectable" style="margin-top: 0.3rem;">🎲Notawordle🎲</h1>
+                <h1 id="resultTitle" class="unselectable" style="margin-top: 2rem;">Congrats</h1>
+                <textarea id="resultText" autofocus="False" class="resultTextArea" cols="35" rows="15" placeholder="results"></textarea>
+                <button id="copyButton" class="copyButton unselectable">Copy</button>
+                <button id="replayButton" class="copyButton unselectable" style="margin-top:0.5rem;">Replay</button>
+            </div>
+        </dialog>
+    </body>
+    <script src="notwordle.js"></script>
+</html>
