@@ -20,6 +20,8 @@ async function loadDictionary() {
     }
   words = (await response.text()).split("\r\n");
   console.log(words.length);
+  console.log(words[0].length);
+  console.log(words[0][0] + words[0].charCodeAt(5));
 }
 
 window.onload = () => init();
