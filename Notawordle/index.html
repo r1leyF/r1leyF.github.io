@@ -4,11 +4,12 @@
         <title>Notawordle</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
     </head>
     <body id="body">
         <div id="app" class="app">
             <h1 class="unselectable">🎲Notawordle🎲</h1>
-            <p class="unselectable" style="margin-block-start: 0.5em; margin-block-end: 0.5em;">Wordle, but no real words.<span id="err" class="errorMsg">In word list</span></p>
+            <p class="unselectable" style="margin-block-start: 0.45em; margin-block-end: 0.45em;">Wordle, but no real words.<span id="err" class="errorMsg">In word list</span></p>
             <section class="letterGrid">
                 <div id="row0" class="letterRow">
                     <input id="letter_00" class="letterBox unselectable" disabled></input>
@@ -79,7 +80,7 @@
                     <button id="L" class="key">L</button>
                 </div>
                 <div>
-                    <button id="enter" class="key specialKey" style="font-size: 1rem;">ENTER</button>
+                    <button id="enter" class="key specialKey" style="font-size: 0.9rem;">ENTER</button>
                     <button id="Z" class="key">Z</button>
                     <button id="X" class="key">X</button>
                     <button id="C" class="key">C</button>
@@ -87,17 +88,17 @@
                     <button id="B" class="key">B</button>
                     <button id="N" class="key">N</button>
                     <button id="M" class="key">M</button>
-                    <button id="back" class="key specialKey" style="font-size: 1.3rem;">⌫</button>
+                    <button id="back" class="key specialKey" style="font-size: 1.17rem;">⌫</button>
                 </div>
             </div>
         </div>
         <dialog id="dialog" class="resultDialog" open>
             <div class="resultBody">
                 <h1 class="unselectable" style="margin-top: 0.3rem;">🎲Notawordle🎲</h1>
-                <h1 id="resultTitle" class="unselectable" style="margin-top: 2rem;">Congrats</h1>
+                <h1 id="resultTitle" class="unselectable" style="margin-top: 1.8rem;">Congrats</h1>
                 <textarea id="resultText" autofocus="False" class="resultTextArea" cols="35" rows="15" placeholder="results"></textarea>
                 <button id="copyButton" class="copyButton unselectable">Copy</button>
-                <button id="replayButton" class="copyButton unselectable" style="margin-top:0.5rem;">Replay</button>
+                <button id="replayButton" class="copyButton unselectable" style="margin-top:0.45rem;">Replay</button>
             </div>
         </dialog>
     </body>
