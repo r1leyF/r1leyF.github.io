@@ -10,6 +10,7 @@
         <div id="app" class="app">
             <h1 class="unselectable">🎲Notawordle🎲</h1>
             <p class="unselectable" style="margin-block-start: 0.45em; margin-block-end: 0.45em;">Wordle, but no real words.<span id="err" class="errorMsg">In word list</span></p>
+            
             <section class="letterGrid">
                 <div id="row0" class="letterRow">
                     <input id="letter_00" class="letterBox unselectable" disabled></input>
@@ -56,7 +57,7 @@
             </section>
             
             <div class="keyBoard unselectable">
-                <div>
+                <div class="keyRow">
                     <button id="Q" class="key">Q</button>
                     <button id="W" class="key">W</button>
                     <button id="E" class="key">E</button>
@@ -68,7 +69,7 @@
                     <button id="O" class="key">O</button>
                     <button id="P" class="key">P</button>
                 </div>
-                <div>
+                <div class="keyRow">
                     <button id="A" class="key">A</button>
                     <button id="S" class="key">S</button>
                     <button id="D" class="key">D</button>
@@ -79,7 +80,7 @@
                     <button id="K" class="key">K</button>
                     <button id="L" class="key">L</button>
                 </div>
-                <div>
+                <div class="keyRow">
                     <button id="enter" class="key specialKey" style="font-size: 0.9rem;">ENTER</button>
                     <button id="Z" class="key">Z</button>
                     <button id="X" class="key">X</button>

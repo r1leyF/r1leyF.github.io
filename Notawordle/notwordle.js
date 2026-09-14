@@ -14,8 +14,12 @@ var shareString = "";
 
 async function loadDictionary() {
   const response = await fetch("dictionPlus.txt");
-  if(!response.ok) {return;}
+  if(!response.ok) {
+    console.error("Couldn't load dictionary")
+    return;
+    }
   words = (await response.text()).split("\r\n");
+  console.log(words.length);
 }
 
 window.onload = () => init();
