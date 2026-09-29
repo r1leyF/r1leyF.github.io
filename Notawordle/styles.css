@@ -14,6 +14,7 @@ button {
 p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    position: relative;
 }
 
 .app {
@@ -93,22 +94,24 @@ p {
     user-select: none;
 }
 .errorMsg {
-    opacity: 0%;
+    opacity: 0%;   
+    position: fixed;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100vw;
+    top: 12%;
+    left: 0;
+}
+.errBox{
     background-color: black;
     color: white;
     text-align: center;
-    padding-top: 0.45rem;
-    position: absolute;
     border-radius: 0.27rem;
-    z-index: 1;
+    padding-top: 0.45rem;
     font-size: 1.08rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-    width: 7.2rem;
-    height: 1.8rem;
-    top: 11%;
-    left: 44.24%;
-    /* Use half of the width (130/2 = 65), to center the tooltip */
+    padding: 0.5rem 1rem;
+    margin: auto;
 }
 .resultDialog[open]{
     display: grid;

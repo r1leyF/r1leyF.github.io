@@ -138,7 +138,8 @@ async function ShowResults(win){
 
     dialog.showModal();
     // unfocus the text area
-    dialog.focus({ focusVisible: false });
+    //dialog.focus({ focusVisible: false });
+    document.getElementById("replayButton").focus();
 
     dialog.style.animation = "appear 100ms both";
     await wait(100);

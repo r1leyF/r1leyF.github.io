@@ -3,14 +3,16 @@
     <head> 
         <title>Notawordle</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Wordle, but no real words.">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
     </head>
     <body id="body">
         <div id="app" class="app">
             <h1 class="unselectable">🎲Notawordle🎲</h1>
-            <p class="unselectable" style="margin-block-start: 0.45em; margin-block-end: 0.45em;">Wordle, but no real words.<span id="err" class="errorMsg">In word list</span></p>
+            <div id="err" class="errorMsg"><span class="errBox">In word list</span></div>
             
+            <p class="unselectable" style="margin-block-start: 0.45em; margin-block-end: 0.45em;">Wordle, but no real words.</p>
             <section class="letterGrid">
                 <div id="row0" class="letterRow">
                     <input id="letter_00" class="letterBox unselectable" disabled></input>

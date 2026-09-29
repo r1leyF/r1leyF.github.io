@@ -28,16 +28,11 @@ button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.image {
-    width: 350px;
-    height: auto;
-}
-
 .textArea {
     display: block;
     margin: auto;
     margin-top: 10px;
-    width: 50%;
+    width: 70%;
     padding: 10px;
     background-color: lightgray;
     font-family: 'Courier New', Courier, monospace;
@@ -62,12 +57,15 @@ button {
 }
 
 .bottomDiv {
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
     margin: auto;
-    position: relative;
     margin-top: 20px;
     margin-bottom: 20px;
-    display: flex;
+    justify-content: center;
     align-items: center;
+    max-width: 1200px;
 }
 
 .centerDiv {
@@ -78,9 +76,9 @@ button {
 .plugGrid {
     margin: auto;
     display: grid;
-    grid-template-columns: 30px 30px 30px 30px 30px;
-    column-gap: 20px;
-    row-gap: 10px;
+    grid-template-columns: repeat(5,auto);
+    gap:0.5rem;
+    max-width: 300px;
     justify-content: center;
 }
 
@@ -93,7 +91,9 @@ button {
 .plugDiv {
     margin: auto;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    min-width: 100px;
 }
 
 .plugHeader {
@@ -120,7 +120,6 @@ button {
 
 .indicatorDiv {
     margin: auto;
-    margin-top: 50px;
 }
 
 .indicatorInput {
@@ -191,4 +190,9 @@ button {
 }
 .tooltip:hover .tooltiptext{
     visibility: visible;
+}
+@media (max-width:1000px){
+    .bottomDiv{
+        flex-direction: column;
+    }
 }
