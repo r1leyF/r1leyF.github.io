@@ -53,11 +53,19 @@ nav {
 	padding: auto;
 	height: fit-content;
 }
+@media (max-width: 270px){
+	.navList {grid-template-columns: auto;}
+}
+@media (min-width: 270px){
+	.navList {grid-template-columns: auto auto;}
+}
+@media (min-width: 475px) {
+  .navList {grid-template-columns: repeat(4,auto);}
+} 
 
-nav ul {
+.navList{
 	list-style-type: none;
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
 	justify-content: center;
 	gap: 1rem;
 	margin: 0;
@@ -185,6 +193,9 @@ nav ul a:hover {
 	width: 50vw;
 	padding: 0.5em;
 	background-color: var(--highlight-color);
+}
+@media (aspect-ratio < 1){
+	.artDialog {width: 98vh; height: 70vh;}
 }
 .viewImage{
 	display: block; 
