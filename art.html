@@ -9,34 +9,46 @@
 </head>
 
 <body>
-    <hr class="topBar">
-	<nav>
-		<ul>
-            <a id="nav_about" class="unselectable" style="width: 6.5rem;">Home</a>
-            <a id="nav_games" class="unselectable" style="width: 6.5rem;">Games</a>
-            <a id="nav_sites" class="unselectable" style="width: 8rem;">Websites</a>
-            <a id="nav_design" class="unselectable" style="width: 5.3rem; color: rgb(255, 93, 181)">- Art -</a>
-		</ul>
-	</nav>
-    <hr class="topBar">
-    <h2 class="centerTitle">Art and Design</h2>
-    <ul class="gallery">
-        <li><span class="Meowth" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="Scooby" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="OnlyForever" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="LuckyDove" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="RDSLogos" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="RebDev" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="BHM" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="Denver" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="GoinDown" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-        <li><span class="WarCrime" onclick="showArt(this)" onContextMenu="return false;"></span></li>
-    </ul>
-    <dialog id="art_dialog" class="artDialog" closedby="any">
-        <button id="close_button" class="closeButton">✖</button>
-        <span id="view" class="viewImage"></span>
-    </dialog>
-
+    <div class = "wrapper">
+        <!-- page header -->
+        <div>
+            <hr class="topBar">
+            <nav>
+                <ul>
+                    <a id="nav_about" class="unselectable" style="width: 6.5rem;">Home</a>
+                    <a id="nav_games" class="unselectable" style="width: 6.5rem;">Games</a>
+                    <a id="nav_sites" class="unselectable" style="width: 8rem;">Websites</a>
+                    <a id="nav_design" class="unselectable" style="width: 5.3rem; color: rgb(255, 93, 181)">- Art -</a>
+                </ul>
+            </nav>
+            <hr class="topBar">
+        </div>
+        <!-- page body -->
+        <div>
+            <h2 class="centerTitle">Art and Design</h2>
+            <ul class="gallery">
+                <li><span class="Meowth" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="Scooby" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="OnlyForever" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="LuckyDove" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="RDSLogos" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="RebDev" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="BHM" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="Denver" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="GoinDown" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+                <li><span class="WarCrime" onclick="showArt(this)" onContextMenu="return false;"></span></li>
+            </ul>
+            <dialog id="art_dialog" class="artDialog" closedby="any">
+                <button id="close_button" class="closeButton">✖</button>
+                <span id="view" class="viewImage"></span>
+            </dialog>
+        </div>
+        <!-- page footer -->
+        <div class = "page-footer">
+            
+        </div>
+    </div>
+    
 	<script src="script.js"></script>
     <script src="gallery.js"></script>
 </body>

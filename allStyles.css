@@ -5,13 +5,24 @@
 	--primary-text-color: #dfdfdf;
 	--primary-back-color: #000000;
 }
+* {
+  box-sizing: inherit;
+}
+html{
+	height: 100%;
+	box-sizing: border-box;
+}
 body {
 	font-family: 'Courier New', Courier, monospace;
+	box-sizing: border-box;
 	background-color: var(--primary-back-color);
 	background-image: url(media/stars.gif);
 	background-size: 400px;
 	background-repeat: repeat;
 	color: var(--primary-text-color);
+	height: 100%;
+	margin: 0;
+	padding: 8px;
 }
 h1{
 	margin: 1rem;
@@ -36,15 +47,17 @@ a:visited {
 
 nav {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	width: 100%;
 	padding: auto;
-	height: 2.5rem;
+	height: fit-content;
 }
 
 nav ul {
 	list-style-type: none;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1rem;
 	margin: 0;
@@ -123,12 +136,13 @@ nav ul a:hover {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 0;
-	margin: 0 5rem;
+	margin: 0 3rem;
 	list-style: none;
 	gap: 0.5rem;
 }
 .gallery li{
-	height: 40vh;
+	height: 30vh;
+	margin: 0.3em;
 	flex-grow: 1;
 }
 
@@ -143,8 +157,8 @@ nav ul a:hover {
 }
 .gallery li span{
 	display: block;
-	height: 40vh;
-	width: 40vh;
+	height: inherit;
+	min-width: 20vh;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -195,13 +209,14 @@ nav ul a:hover {
 	padding: 0.2rem;
 	cursor: pointer;
 }
-.bottomText{
-	text-align: center; 
-	width: 100%; 
-	position:absolute; 
-	bottom:0%; 
-	box-sizing: border-box; 
-	left:0;
+
+.wrapper{
+	height: 100%;
+  	display: grid;
+  	grid-template-rows: auto 1fr auto;
+}
+
+.page-footer{
+	text-align: center;
 	background-color: var(--primary-back-color);
-	padding: 0.5em;
 }
